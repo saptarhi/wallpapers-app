@@ -1,38 +1,48 @@
-.App {
-  text-align: center;
+:root {
+  --background-color: #f5f9ff;
+  --button-bg: #e6f0f7;
+  --button-text: #333333;
+  --button-hover-bg: #40e0d0;
+}
+.dark {
+  --background-color: #0f172a;
+  --button-bg: #1e2b34;
+  --button-text: #a5f3fc;
+  --button-hover-bg: #2dd4bf;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--button-text);
+  transition: background-color 0.3s, color 0.3s;
+  font-family: "Poppins", sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: var(--background-color);
+  color: var(--button-text);
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+.theme-toggle button {
+  margin: 10px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-size: 15px;
+  transition: background-color 0.3s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.theme-toggle button:hover {
+  background-color: var(--button-hover-bg);
 }

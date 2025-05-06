@@ -1,0 +1,25 @@
+.categories-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.category-button {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  font-family: "Poppins";
+  font-weight: 200;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.category-button:hover {
+  background-color: var(--button-hover-bg);
+  transform: scale(1.05);
+}

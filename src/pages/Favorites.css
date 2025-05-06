@@ -1,0 +1,149 @@
+.favorites-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.favorites-page h2 {
+  font-family: "Playfair Display", sans-serif;
+  font-size: 3rem;
+  font-weight: 200;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.controls select {
+  padding: 0.5rem 1rem;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.controls select:focus {
+  border-color: #333;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.favorite-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.favorite-item:hover {
+  transform: translateY(-4px);
+}
+
+.favorite-item img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.favorite-item button {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background-color 0.3s ease;
+}
+
+.favorite-item button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+.collection-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.collection-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid rgb(174, 222, 254);
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.collection-input:focus {
+  border-color: #333;
+}
+
+.collection-button {
+  padding: 8px 16px;
+  background-color: #add8e6;
+  color: #333333;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.collection-button:hover {
+  background-color: #2dd4bf;
+}
+.collections-row {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem 0;
+  scroll-snap-type: x mandatory;
+}
+
+.collection-card {
+  flex: 0 0 auto;
+  width: 300px;
+  scroll-snap-align: start;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.collection-card h3 a {
+  color: #333333;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  text-decoration: none;
+}
+
+.collection-card h3 a:visited {
+  color: #333333;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 0.5rem;
+}
+
+.favorite-item img {
+  width: 100%;
+  border-radius: 8px;
+}
