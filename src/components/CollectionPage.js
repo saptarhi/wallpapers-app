@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useFavorites } from '../context/FavoritesContext';
+import './CollectionPage.css';
 
 const CollectionPage = () => {
   const { collectionName } = useParams();

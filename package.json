@@ -2,6 +2,7 @@
   "name": "wallpapers-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://saptarhi.github.io/wallpapers-app",
   "proxy": "https://api.unsplash.com",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
@@ -22,7 +23,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "homepage": "https://github.com/saptarhi/wallpapers-app.git",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },

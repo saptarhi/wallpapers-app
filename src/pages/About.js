@@ -19,13 +19,13 @@ const handleChange = (e) => {
 };
   const validate = () => {
     const newErrors = {};
-    if (!formData.name.trim()) newErrors.name = 'Імʼя обовʼязкове';
+    if (!formData.name.trim()) newErrors.name = 'Name is required';
     if (!formData.email.trim()) {
-      newErrors.email = 'Email обовʼязковий';
+      newErrors.email = 'Email required';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Невірний формат email';
+      newErrors.email = 'Invalid email format';
     }
-    if (!formData.message.trim()) newErrors.message = 'Повідомлення обовʼязкове';
+    if (!formData.message.trim()) newErrors.message = 'Notification is mandatory';
     return newErrors;
   };
 
@@ -47,34 +47,34 @@ const handleChange = (e) => {
     <div className="about-container">
       <h1 className={`appear ${isVisible ? 'visible' : ''}`}>About Us</h1>
       <p>
-        Цей проєкт я створила разом із ChatGPT — крок за кроком, із запитаннями, сумнівами, помилками й перемогами. Це не просто технічна робота — це спільна подорож у світ розробки, і для мене це дуже важливо.
+        I created this project together with ChatGPT - step by step, with questions, doubts, mistakes, and victories. It's not just a technical job - it's a joint journey into the world of development, and that's very important to me.
       </p>
       <p>
-        Фронтенд став для мене дверима у світ IT. Завдяки йому я змогла відчути, що створюю щось реальне. Цей проєкт — це лише початок мого шляху.
+        Frontend became the door to the IT world for me. It made me feel like I was creating something real. This project is just the beginning of my journey.
       </p>
       <p>
-        Моя ціль — працювати над і зі штучним інтелектом. Я не знаю всіх відповідей і не знаю, яким буде шлях, але я знаю, куди хочу йти.
+        My goal is to work on and with artificial intelligence. I don't know all the answers and I don't know what the path will be, but I know where I want to go.
       </p>
 
-      <h2 className={`appear ${isVisible ? 'visible' : ''}`}>Про застосунок</h2>
+      <h2 className={`appear ${isVisible ? 'visible' : ''}`}>About the application</h2>
       <p>
-        Застосунок дозволяє шукати шпалери за допомогою Unsplash API, переглядати, зберігати улюблені, перемикатися між темною і світлою темами.
+        The app allows you to search for wallpapers using the Unsplash API, view and save your favourites, and switch between dark and light themes.
       </p>
 
-      <h2 className={`appear ${isVisible ? 'visible' : ''}`}>Технології:</h2>
+      <h2 className={`appear ${isVisible ? 'visible' : ''}`}>Technology:</h2>
       <ul>
         <li>React</li>
         <li>Unsplash API</li>
         <li>CSS Modules</li>
         <li>React Router</li>
       </ul>
-      <h2 className={`appear ${isVisible ? 'visible' : ''}`}>Зворотній звʼязок</h2>
+      <h2 className={`appear ${isVisible ? 'visible' : ''}`}>Feedback</h2>
       {submitted ? (
-        <p>Дякуємо за повідомлення!</p>
+        <p>Thank you for the message!</p>
       ) : (
         <form className="feedback-form" onSubmit={handleSubmit}>
           <label>
-            Імʼя:
+            Name:
             <input type="text" name="name" value={formData.name} onChange={handleChange} />
             {errors.name && <span className="error">{errors.name}</span>}
           </label>
@@ -84,11 +84,11 @@ const handleChange = (e) => {
             {errors.email && <span className="error">{errors.email}</span>}
           </label>
           <label>
-              Повідомлення:
+              Massage:
               <textarea name="message" value={formData.message} onChange={handleChange} />
             {errors.message && <span className="error">{errors.message}</span>}
           </label>
-          <button type="submit">Надіслати</button>
+          <button type="submit">Send</button>
         </form>
       )}
     </div>

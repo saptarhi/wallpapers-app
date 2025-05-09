@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Modal from '../components/Modal.js';
 import SizeFilter from '../components/SizeFilter.js';
+import Loader from '../components/Loader.js';
 import './Home.css';
 
 
@@ -8,14 +9,23 @@ const Home = ({ wallpapers, loading, onLoadMore }) => {
   const [selectedWallpaper, setSelectedWallpaper] = useState(null);
   const [selectedSize, setSelectedSize] = useState('');
   const [favorites, setFavorites] = useState([]);
+  const [initialLoad, setInitialLoad] = useState(true);
   const lastImageRef = useRef(null); // реф на останнє зображення
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    if (lastImageRef.current) {
+    if (!initialLoad && lastImageRef.current) {
       lastImageRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [wallpapers]); // запускається щоразу, коли змінюється список зображень
-
+  
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (wallpapers.length > 0 && initialLoad) {
+      setInitialLoad(false); // отключаем флаг после первой загрузки
+    }
+  }, [wallpapers]);
+  
   const openModal = (wallpaper) => {
     setSelectedWallpaper(wallpaper);
   };
@@ -46,8 +56,6 @@ const Home = ({ wallpapers, loading, onLoadMore }) => {
     const height = wallpaper.height;
 
     switch (selectedSize) {
-      case 'small':
-        return width >= 800 && height >= 600 && width < 1920;
       case 'medium':
         return width >= 1920 && height >= 1080 && width < 2560;
       case 'large':
@@ -60,7 +68,7 @@ const Home = ({ wallpapers, loading, onLoadMore }) => {
   });
 
   if (loading) {
-    return <div className="loading">Loading wallpapers...</div>;
+    return <Loader/>;
   }
 
   if (filteredWallpapers.length === 0) {

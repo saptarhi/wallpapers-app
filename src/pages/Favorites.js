@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Favorites.css';
 import CreateCollectionForm from '../components/CreateCollectionForm';
 import { useFavorites } from '../context/FavoritesContext'; 
@@ -6,6 +6,15 @@ import { Link } from 'react-router-dom';
 
 function Favorites() {
   const { collections, removeFavoriteFromCollection } = useFavorites();
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const openModal = (image) => {
+    setSelectedImage(image);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
+  };
 
   return (
     <div className="favorites-page">
@@ -27,6 +36,8 @@ function Favorites() {
                     <img
                       src={wallpaper.urls?.thumb}
                       alt={wallpaper.name || 'Wallpaper'}
+                      onClick={() => openModal(wallpaper)}
+                      style={{ cursor: 'pointer' }}
                     />
                     <button onClick={() => removeFavoriteFromCollection(name, wallpaper.id)}>
                       Remove
@@ -38,7 +49,20 @@ function Favorites() {
           ))}
         </div>
       )}
+      {selectedImage && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <img
+              src={selectedImage.urls?.full}
+              alt="Enlarged Wallpaper"
+              className="modal-image"
+            />
+            <button onClick={closeModal} className="close-button">Close</button>
+          </div>
+        </div>
+      )}
     </div>
-  )
+  );
 }
+
 export default Favorites;

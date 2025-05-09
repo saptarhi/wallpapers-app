@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useFavorites } from '../context/FavoritesContext'; // або шлях до твого контексту
+import { useFavorites } from '../context/FavoritesContext'; 
 
 function CreateCollectionForm() {
   const [collectionName, setCollectionName] = useState('');

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import Favorites from './pages/Favorites';
 import About from './pages/About';
@@ -18,7 +18,7 @@ import { fetchWallpapers } from './api/Unsplash';
 function AppContent() {
   const location = useLocation();
   const [wallpapers, setWallpapers] = useState([]);
-  const [loading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState('');
   const [page, setPage] = useState(1);
   const [darkMode, setDarkMode] = useState(false);
@@ -43,14 +43,17 @@ function AppContent() {
   const handleSearch = (searchText) => {
     setQuery(searchText);
     setPage(1);
-    fetchWallpapers(searchText, 1).then((data) => setWallpapers(data));
+    fetchWallpapers(searchText, 1).then((data) => setWallpapers(data))
+    .finally(() => setLoading(false));
   };
 
   const handleLoadMore = () => {
   const currentScroll = window.scrollY;
   const nextPage = page + 1;
-  setPage(nextPage);
-  fetchWallpapers(query, nextPage).then((data) => setWallpapers((prev) => [...prev, ...data]));
+    setPage(nextPage);
+    setLoading(true);
+    fetchWallpapers(query, nextPage).then((data) => setWallpapers((prev) => [...prev, ...data]))
+      .finally(() => setLoading(false));
 
   requestAnimationFrame(() => {
     window.scrollTo({ top: currentScroll, behavior: 'auto' });
@@ -58,7 +61,9 @@ function AppContent() {
 };
 
   useEffect(() => {
-    fetchWallpapers().then((data) => setWallpapers(data));
+    setLoading(true);
+    fetchWallpapers().then((data) => setWallpapers(data))
+    .finally(() => setLoading(false));
   }, []);
 
   return (

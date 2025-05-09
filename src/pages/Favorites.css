@@ -4,6 +4,14 @@
   margin: 0 auto;
 }
 
+.favorites-page p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  color: #808080;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
 .favorites-page h2 {
   font-family: "Playfair Display", sans-serif;
   font-size: 3rem;
@@ -11,69 +19,7 @@
   margin-bottom: 1.5rem;
   text-align: center;
 }
-.controls {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
 
-.controls select {
-  padding: 0.5rem 1rem;
-  border: 1px solid #aaa;
-  border-radius: 8px;
-  background: transparent;
-  font-size: 1rem;
-  outline: none;
-  transition: border 0.3s ease;
-}
-
-.controls select:focus {
-  border-color: #333;
-}
-
-.favorites-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 1.5rem;
-}
-
-.favorite-item {
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
-}
-
-.favorite-item:hover {
-  transform: translateY(-4px);
-}
-
-.favorite-item img {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-.favorite-item button {
-  position: absolute;
-  bottom: 8px;
-  right: 8px;
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-  border: none;
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 0.85rem;
-  transition: background-color 0.3s ease;
-}
-
-.favorite-item button:hover {
-  background: rgba(0, 0, 0, 0.8);
-}
 .collection-form {
   display: flex;
   gap: 10px;
@@ -84,9 +30,13 @@
 .collection-input {
   flex: 1;
   padding: 8px 12px;
+  width: 200px;
+  font-family: "Poppins", sans-serif;
+  font-style: italic;
+  font-weight: 200;
   border: 1px solid rgb(174, 222, 254);
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 15px;
   outline: none;
   transition: border-color 0.2s;
 }
@@ -97,6 +47,8 @@
 
 .collection-button {
   padding: 8px 16px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
   background-color: #add8e6;
   color: #333333;
   border: none;
@@ -108,24 +60,18 @@
 .collection-button:hover {
   background-color: #2dd4bf;
 }
-.collections-row {
-  display: flex;
-  overflow-x: auto;
-  gap: 1rem;
-  padding: 1rem 0;
-  scroll-snap-type: x mandatory;
-}
 
 .collection-card {
-  flex: 0 0 auto;
-  width: 300px;
-  scroll-snap-align: start;
+  width: 100%;
+  max-width: 300px;
+  flex: 1 1 300px;
   border: 1px solid #ccc;
   border-radius: 12px;
   padding: 1rem;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .collection-card h3 a {
   color: #333333;
   font-family: "Poppins", sans-serif;
@@ -133,17 +79,18 @@
   text-decoration: none;
 }
 
+.collection-card h3 a:hover {
+  color: #2dd4bf;
+}
+
 .collection-card h3 a:visited {
   color: #333333;
 }
 
-.favorites-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 0.5rem;
-}
-
-.favorite-item img {
-  width: 100%;
-  border-radius: 8px;
+.collections-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0;
 }
